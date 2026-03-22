@@ -18,7 +18,7 @@
     <arg name="parallel" value="4"/>
 
     <!-- Files to check by default -->
-    <file>src</file>
+    <file>examples</file>
 
     <!-- Exclude patterns -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
@@ -61,12 +61,16 @@
     <!-- Enforces zero blank lines between an attribute and its target declaration -->
     <rule ref="SlevomatCodingStandard.Attributes.AttributeAndTargetSpacing">
         <properties>
-            <property name="linesCountBetween" value="0"/>
+            <property name="linesCount" value="0"/>
         </properties>
     </rule>
 
     <!-- Enforces alphabetical ordering of attributes -->
-    <rule ref="SlevomatCodingStandard.Attributes.AttributesOrder"/>
+    <rule ref="SlevomatCodingStandard.Attributes.AttributesOrder">
+        <properties>
+            <property name="orderAlphabetically" value="true"/>
+        </properties>
+    </rule>
 
     <!-- Disallows joining multiple attributes into one bracket (#[A, B] → separate lines) -->
     <rule ref="SlevomatCodingStandard.Attributes.DisallowAttributesJoining"/>
