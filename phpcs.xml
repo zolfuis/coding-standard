@@ -48,6 +48,9 @@
     <!-- Requires trailing comma after last element in multi-line arrays -->
     <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/>
 
+    <!-- Requires array keys to be sorted alphabetically -->
+    <rule ref="SlevomatCodingStandard.Arrays.AlphabeticallySortedByKeys"/>
+
     <!-- Disallows $array[] = $value; implicit array creation -->
     <rule ref="SlevomatCodingStandard.Arrays.DisallowImplicitArrayCreation"/>
 

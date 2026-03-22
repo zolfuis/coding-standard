@@ -10,7 +10,7 @@ Legend: ✅ Added | ❌ Skipped
 
 | Sniff | Decision | Reason |
 |-------|----------|--------|
-| `Arrays.AlphabeticallySortedByKeys` | ❌ Skipped | Too opinionated — array key order often reflects logical grouping or insertion order, not alphabetical order |
+| `Arrays.AlphabeticallySortedByKeys` | ✅ Added | Consistent alphabetical key ordering aids readability and reduces merge conflicts |
 | `Arrays.ArrayAccess` | ❌ Skipped | Too specific; not broadly applicable |
 | `Arrays.DisallowImplicitArrayCreation` | ✅ Added | Prevents accidental implicit `$arr[] = $x` when the array was never initialized |
 | `Arrays.DisallowPartiallyKeyed` | ❌ Skipped | Too strict; mixing keyed/unkeyed is sometimes intentional and readable |
@@ -301,7 +301,7 @@ Legend: ✅ Added | ❌ Skipped
 
 | Category | Added | Skipped | Total |
 |----------|-------|---------|-------|
-| Arrays | 3 | 4 | 7 |
+| Arrays | 4 | 3 | 7 |
 | Attributes | 5 | 0 | 5 |
 | Classes | 8 | 26 | 34 |
 | Commenting | 5 | 10 | 15 |
@@ -318,4 +318,4 @@ Legend: ✅ Added | ❌ Skipped
 | Type Hints | 10 | 5 | 15 |
 | Variables | 3 | 2 | 5 |
 | Whitespaces | 1 | 0 | 1 |
-| **Total** | **67** | **105** | **172** |
+| **Total** | **68** | **104** | **172** |
