@@ -48,11 +48,23 @@
     <!-- Requires trailing comma after last element in multi-line arrays -->
     <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/>
 
+    <!-- Requires array keys to be sorted alphabetically -->
+    <rule ref="SlevomatCodingStandard.Arrays.AlphabeticallySortedByKeys"/>
+
     <!-- Disallows $array[] = $value; implicit array creation -->
     <rule ref="SlevomatCodingStandard.Arrays.DisallowImplicitArrayCreation"/>
 
     <!-- Enforces correct whitespace in single-line arrays -->
     <rule ref="SlevomatCodingStandard.Arrays.SingleLineArrayWhitespace"/>
+
+    <!-- Disallows direct array access on function/method return values (e.g. getItems()[0]) -->
+    <rule ref="SlevomatCodingStandard.Arrays.ArrayAccess"/>
+
+    <!-- Disallows mixing keyed and unkeyed elements in the same array -->
+    <rule ref="SlevomatCodingStandard.Arrays.DisallowPartiallyKeyed"/>
+
+    <!-- Requires closing bracket of multi-line array on its own line -->
+    <rule ref="SlevomatCodingStandard.Arrays.MultiLineArrayEndBracketPlacement"/>
 
     <!-- ============================================================
          Attributes
