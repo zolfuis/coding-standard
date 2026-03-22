@@ -9,6 +9,15 @@ use InvalidArgumentException;
 
 /**
  * Demonstrates arrays, readonly properties, and PHP 8.1 features.
+ *
+ * Array rules exercised in this file:
+ *   - Arrays.TrailingArrayComma           → trailing comma on every multi-line array
+ *   - Arrays.AlphabeticallySortedByKeys   → keys in summary() / DEFAULT_TAGS sorted a–z
+ *   - Arrays.DisallowImplicitArrayCreation → $this->items initialised in __construct before use
+ *   - Arrays.SingleLineArrayWhitespace    → single-line arrays have correct inner spacing
+ *   - Arrays.ArrayAccess                  → never getItems()[0]; always assign first
+ *   - Arrays.DisallowPartiallyKeyed       → every array is fully-keyed or fully-unkeyed
+ *   - Arrays.MultiLineArrayEndBracketPlacement → closing ] always on its own line
  */
 final class CollectionHelper implements Countable
 {
@@ -66,10 +75,10 @@ final class CollectionHelper implements Countable
     public function summary(): array
     {
         return [
-            'name' => $this->name,
             'count' => $this->count(),
             'empty' => $this->count() === 0,
             'items' => $this->items,
+            'name' => $this->name,
         ];
     }
 
@@ -99,5 +108,68 @@ final class CollectionHelper implements Countable
         $clone->items = array_map($callback, $this->items);
 
         return $clone;
+    }
+
+    /**
+     * Returns the first item, or null when the collection is empty.
+     *
+     * Arrays.ArrayAccess: the return value of toArray() is assigned to $items
+     * before index access — never written as $this->toArray()[0].
+     */
+    public function first(): ?string
+    {
+        $items = $this->toArray();
+
+        return $items[0] ?? null;
+    }
+
+    /**
+     * Returns the last item, or null when the collection is empty.
+     *
+     * Arrays.ArrayAccess: same pattern — assign, then index.
+     */
+    public function last(): ?string
+    {
+        $items = $this->toArray();
+
+        if ($items === []) {
+            return null;
+        }
+
+        return $items[count($items) - 1];
+    }
+
+    /**
+     * Returns a fully-keyed metadata array for this collection.
+     *
+     * Arrays.DisallowPartiallyKeyed: every element has an explicit string key.
+     * Arrays.AlphabeticallySortedByKeys: keys are in a–z order.
+     * Arrays.TrailingArrayComma: trailing comma after the last element.
+     * Arrays.MultiLineArrayEndBracketPlacement: closing ] on its own line.
+     *
+     * @return array<string, mixed>
+     */
+    public function metadata(): array
+    {
+        return [
+            'count' => $this->count(),
+            'empty' => $this->count() === 0,
+            'first' => $this->first(),
+            'last' => $this->last(),
+            'name' => $this->name,
+        ];
+    }
+
+    /**
+     * Returns a fully-unkeyed list of tags associated with this collection.
+     *
+     * Arrays.DisallowPartiallyKeyed: no keys at all — consistent unkeyed list.
+     * Arrays.SingleLineArrayWhitespace: one space after [ and before ].
+     *
+     * @return array<int, string>
+     */
+    public function tags(): array
+    {
+        return ['collection', 'helper', 'php81'];
     }
 }
