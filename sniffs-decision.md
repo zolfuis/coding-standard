@@ -24,11 +24,11 @@ Legend: ✅ Added | ❌ Skipped
 
 | Sniff | Decision | Reason |
 |-------|----------|--------|
-| `Attributes.AttributeAndTargetSpacing` | ❌ Skipped | Minor spacing rule; not essential for most projects |
-| `Attributes.AttributesOrder` | ❌ Skipped | Too opinionated on attribute ordering |
-| `Attributes.DisallowAttributesJoining` | ❌ Skipped | Personal style preference |
-| `Attributes.DisallowMultipleAttributesPerLine` | ❌ Skipped | Personal style preference |
-| `Attributes.RequireAttributeAfterDocComment` | ❌ Skipped | Too prescriptive; some teams prefer attributes before doc comments |
+| `Attributes.AttributeAndTargetSpacing` | ✅ Added | Enforces zero blank lines between an attribute and its target; consistent with project spacing conventions |
+| `Attributes.AttributesOrder` | ✅ Added | Enforces alphabetical attribute ordering for consistency |
+| `Attributes.DisallowAttributesJoining` | ✅ Added | Each attribute on its own `#[…]` line improves readability and diff clarity |
+| `Attributes.DisallowMultipleAttributesPerLine` | ✅ Added | Keeps one attribute per line for clarity |
+| `Attributes.RequireAttributeAfterDocComment` | ✅ Added | Attributes belong after the doc comment — consistent with PHP-standard attribute placement |
 
 ---
 
@@ -302,7 +302,7 @@ Legend: ✅ Added | ❌ Skipped
 | Category | Added | Skipped | Total |
 |----------|-------|---------|-------|
 | Arrays | 3 | 4 | 7 |
-| Attributes | 0 | 5 | 5 |
+| Attributes | 5 | 0 | 5 |
 | Classes | 8 | 26 | 34 |
 | Commenting | 5 | 10 | 15 |
 | Complexity | 0 | 1 | 1 |
@@ -318,4 +318,4 @@ Legend: ✅ Added | ❌ Skipped
 | Type Hints | 10 | 5 | 15 |
 | Variables | 3 | 2 | 5 |
 | Whitespaces | 1 | 0 | 1 |
-| **Total** | **62** | **110** | **172** |
+| **Total** | **67** | **105** | **172** |
