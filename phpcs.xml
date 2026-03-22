@@ -55,6 +55,29 @@
     <rule ref="SlevomatCodingStandard.Arrays.SingleLineArrayWhitespace"/>
 
     <!-- ============================================================
+         Attributes
+    ============================================================ -->
+
+    <!-- Enforces zero blank lines between an attribute and its target declaration -->
+    <rule ref="SlevomatCodingStandard.Attributes.AttributeAndTargetSpacing">
+        <properties>
+            <property name="linesCountBetween" value="0"/>
+        </properties>
+    </rule>
+
+    <!-- Enforces alphabetical ordering of attributes -->
+    <rule ref="SlevomatCodingStandard.Attributes.AttributesOrder"/>
+
+    <!-- Disallows joining multiple attributes into one bracket (#[A, B] → separate lines) -->
+    <rule ref="SlevomatCodingStandard.Attributes.DisallowAttributesJoining"/>
+
+    <!-- Disallows multiple attributes on the same line -->
+    <rule ref="SlevomatCodingStandard.Attributes.DisallowMultipleAttributesPerLine"/>
+
+    <!-- Requires attribute to appear after the doc comment, not before -->
+    <rule ref="SlevomatCodingStandard.Attributes.RequireAttributeAfterDocComment"/>
+
+    <!-- ============================================================
          Classes
     ============================================================ -->
 
